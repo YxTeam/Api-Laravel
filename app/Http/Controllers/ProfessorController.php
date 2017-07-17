@@ -36,21 +36,6 @@ class ProfessorController extends Controller
         }
     }
 
-    public function store(Request $dados) {
-        try {
-            $statusCode = 200;
-            $response = collect([]);
-            
-            $professor = Professor::create();
-            $response->push(['created' => 'Professor created successfully.']);
-        } catch (Exception $e) {
-            $response->push(['error' => 'Error creating Professor.']);
-            $statusCode = 404;
-        } finally {
-            return response()->json($response, $statusCode);
-        }
-    }
-
     public function show($id) {
         try {
             $statusCode = 200;
@@ -67,38 +52,6 @@ class ProfessorController extends Controller
             $statusCode = 404; //Not Found
         } finally {
             return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-        }
-    }
-
-    public function update(Request $dados, $id) {
-        try {
-            $statusCode = 200;
-            $response = collect([]);
-            
-            $professor = Professor::findOrFail($id);
-            $professor->fill($dados->all())->save();
-            $response->push(['updated' => 'Professor updated successfully.']);
-        } catch (Exception $e) {
-            $response->push(['error' => 'Error updating Professor.']);
-            $statusCode = 404;
-        } finally {
-            return response()->json($response, $statusCode);
-        }
-    }
-
-    public function destroy($id) {
-        try {
-            $statusCode = 200;
-            $response = collect([]);
-            
-            $professor = Professor::findOrFail($id);
-            $professor->delete();
-            $response->push(['success' => 'Professor deleted successfully.']);
-        } catch (Exception $e) {
-            $response->push(['error' => 'Error deleting Professor.']);
-            $statusCode = 404;
-        } finally {
-            return response()->json($response, $statusCode);
         }
     }
 }

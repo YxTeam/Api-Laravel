@@ -6,9 +6,9 @@ use Illuminate\Support\collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use App\Aluno;
+use App\Horario;
 
-class AlunoController extends Controller
+class HorarioController extends Controller
 {
     public function index() {
         try {
@@ -18,22 +18,18 @@ class AlunoController extends Controller
             $response = collect([]);
 
             //get all friends from database
-            $alunos = Aluno::all();
+            $horarios = Horario::all();
             
-            foreach($alunos as $aluno)
+            foreach($horarios as $horario)
             {
                 //add friend to the collection
                 $response->push([
-                    'id' => $aluno->id,
-                    'nome' => $aluno->nome,
-                    'cartao_cidadao' => $aluno->cartao_cidadao,
-                    'sexo' => $aluno->sexo,
-                    'nacionalidade' => $aluno->nacionalidade,
-                    'morada' => $aluno->morada,
-                    'telemovel' => $aluno->telemovel,
-                    'email' => $aluno->email,
-                    'cursos' => $aluno->cursos,
-                    'disciplinas' => $aluno->disciplinas
+                    'id' => $horario->id,
+                    'dia' => $horario->dia,
+                    'hora' => $horario->hora,
+                    'duracao' => $horario->duracao,
+                    'sala' => $horario->sala,
+                    'disciplinas' => $horario->disciplinas
                 ]);
             }
         } catch (Exception $e) {
@@ -48,19 +44,16 @@ class AlunoController extends Controller
             $statusCode = 200;
             $response = collect([]);
             
-            $aluno = Aluno::findOrFail($id);
+            $horario = Horario::findOrFail($id);
             $response->push([
-                'id' => $aluno->id,
-                'nome' => $aluno->nome,
-                'cartao_cidadao' => $aluno->cartao_cidadao,
-                'sexo' => $aluno->sexo,
-                'nacionalidade' => $aluno->nacionalidade,
-                'morada' => $aluno->morada,
-                'telemovel' => $aluno->telemovel,
-                'email' => $aluno->email
+                'id' => $horario->id,
+                'dia' => $horario->dia,
+                'hora' => $horario->hora,
+                'duracao' => $horario->duracao,
+                'sala' => $horario->sala
             ]);
         } catch (Exception $e) {
-            $response->push(['error' => 'Aluno not found.']);
+            $response->push(['error' => 'Horario not found.']);
             $statusCode = 404; //Not Found
         } finally {
             return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');

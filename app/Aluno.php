@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Curso;
 use App\Disciplina;
+use App\Propina;
 
 class Aluno extends Model
 {
@@ -21,5 +22,10 @@ class Aluno extends Model
     public function disciplinas()
     {
         return $this->belongsToMany('App\Disciplina', 'aluno_disciplina')->withTimestamps();
+    }
+
+    public function propinas()
+    {
+        return $this->belongsToMany('App\Propina', 'aluno_propina')->withTimestamps();
     }
 }

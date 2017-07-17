@@ -6,9 +6,9 @@ use Illuminate\Support\collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use App\Aluno;
+use App\Documento;
 
-class AlunoController extends Controller
+class DocumentoController extends Controller
 {
     public function index() {
         try {
@@ -18,22 +18,17 @@ class AlunoController extends Controller
             $response = collect([]);
 
             //get all friends from database
-            $alunos = Aluno::all();
+            $documentos = Documento::all();
             
-            foreach($alunos as $aluno)
+            foreach($documentos as $documento)
             {
                 //add friend to the collection
                 $response->push([
-                    'id' => $aluno->id,
-                    'nome' => $aluno->nome,
-                    'cartao_cidadao' => $aluno->cartao_cidadao,
-                    'sexo' => $aluno->sexo,
-                    'nacionalidade' => $aluno->nacionalidade,
-                    'morada' => $aluno->morada,
-                    'telemovel' => $aluno->telemovel,
-                    'email' => $aluno->email,
-                    'cursos' => $aluno->cursos,
-                    'disciplinas' => $aluno->disciplinas
+                    'id' => $documento->id,
+                    'nome' => $documento->nome,
+                    'categoria' => $documento->categoria,
+                    'link' => $documento->link,
+                    'cursos' => $documento->cursos
                 ]);
             }
         } catch (Exception $e) {
@@ -48,22 +43,18 @@ class AlunoController extends Controller
             $statusCode = 200;
             $response = collect([]);
             
-            $aluno = Aluno::findOrFail($id);
+            $documento = Documento::findOrFail($id);
             $response->push([
-                'id' => $aluno->id,
-                'nome' => $aluno->nome,
-                'cartao_cidadao' => $aluno->cartao_cidadao,
-                'sexo' => $aluno->sexo,
-                'nacionalidade' => $aluno->nacionalidade,
-                'morada' => $aluno->morada,
-                'telemovel' => $aluno->telemovel,
-                'email' => $aluno->email
+                'id' => $documento->id,
+                'nome' => $documento->nome,
+                'categoria' => $documento->categoria,
+                'link' => $documento->link,
+                'cursos' => $documento->cursos
             ]);
         } catch (Exception $e) {
-            $response->push(['error' => 'Aluno not found.']);
+            $response->push(['error' => 'Documento not found.']);
             $statusCode = 404; //Not Found
         } finally {
             return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
         }
-    }
-}
+    }}

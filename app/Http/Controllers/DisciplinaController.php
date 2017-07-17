@@ -27,28 +27,18 @@ class DisciplinaController extends Controller
                     'id' => $disciplina->id,
                     'nome' => $disciplina->nome,
                     'tipo' => $disciplina->tipo,
-                    'etcs' => $disciplina->etcs
+                    'etcs' => $disciplina->etcs,
+                    'cursos' => $disciplina->cursos,
+                    'alunos' => $disciplina->alunos,
+                    'avisos' => $disciplina->avisos,
+                    'eventos' => $disciplina->eventos,
+                    'horarios' => $disciplina->horarios
                 ]);
             }
         } catch (Exception $e) {
             $statusCode = 400; //bad request
         } finally {
             return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-        }
-    }
-
-    public function store(Request $dados) {
-        try {
-            $statusCode = 200;
-            $response = collect([]);
-            
-            $disciplina = Disciplina::create();
-            $response->push(['created' => 'Disciplina created successfully.']);
-        } catch (Exception $e) {
-            $response->push(['error' => 'Error creating Disciplina.']);
-            $statusCode = 404;
-        } finally {
-            return response()->json($response, $statusCode);
         }
     }
 
@@ -69,38 +59,6 @@ class DisciplinaController extends Controller
             $statusCode = 404; //Not Found
         } finally {
             return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-        }
-    }
-
-    public function update(Request $dados, $id) {
-        try {
-            $statusCode = 200;
-            $response = collect([]);
-            
-            $disciplina = Disciplina::findOrFail($id);
-            $disciplina->fill($dados->all())->save();
-            $response->push(['updated' => 'Disciplina updated successfully.']);
-        } catch (Exception $e) {
-            $response->push(['error' => 'Error updating Disciplina.']);
-            $statusCode = 404;
-        } finally {
-            return response()->json($response, $statusCode);
-        }
-    }
-
-    public function destroy($id) {
-        try {
-            $statusCode = 200;
-            $response = collect([]);
-            
-            $disciplina = Disciplina::findOrFail($id);
-            $disciplina->delete();
-            $response->push(['success' => 'Disciplina deleted successfully.']);
-        } catch (Exception $e) {
-            $response->push(['error' => 'Error deleting Disciplina.']);
-            $statusCode = 404;
-        } finally {
-            return response()->json($response, $statusCode);
         }
     }
 }

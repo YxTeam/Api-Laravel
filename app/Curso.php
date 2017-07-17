@@ -7,6 +7,8 @@ use App\Aluno;
 use App\Disciplina;
 use App\Aviso;
 use App\Evento;
+use App\Propina;
+use App\Documento;
 
 class Curso extends Model
 {
@@ -33,5 +35,15 @@ class Curso extends Model
     public function eventos()
     {
         return $this->belongsToMany('App\Evento', 'evento_curso')->withTimestamps();
+    }
+
+    public function propinas()
+    {
+        return $this->belongsToMany('App\Propina', 'curso_propina')->withTimestamps();
+    }
+
+    public function documentos()
+    {
+        return $this->belongsToMany('App\Documento', 'curso_documento')->withTimestamps();
     }
 }

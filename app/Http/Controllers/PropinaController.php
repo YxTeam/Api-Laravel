@@ -6,9 +6,9 @@ use Illuminate\Support\collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use App\Aluno;
+use App\Propina;
 
-class AlunoController extends Controller
+class PropinaController extends Controller
 {
     public function index() {
         try {
@@ -18,22 +18,18 @@ class AlunoController extends Controller
             $response = collect([]);
 
             //get all friends from database
-            $alunos = Aluno::all();
+            $propinas = Propina::all();
             
-            foreach($alunos as $aluno)
+            foreach($propinas as $propina)
             {
                 //add friend to the collection
                 $response->push([
-                    'id' => $aluno->id,
-                    'nome' => $aluno->nome,
-                    'cartao_cidadao' => $aluno->cartao_cidadao,
-                    'sexo' => $aluno->sexo,
-                    'nacionalidade' => $aluno->nacionalidade,
-                    'morada' => $aluno->morada,
-                    'telemovel' => $aluno->telemovel,
-                    'email' => $aluno->email,
-                    'cursos' => $aluno->cursos,
-                    'disciplinas' => $aluno->disciplinas
+                    'id' => $propina->id,
+                    'ano' => $propina->ano,
+                    'mes' => $propina->mes,
+                    'valor' => $propina->valor,
+                    'cursos' => $propina->cursos,
+                    'alunos' => $propina->alunos
                 ]);
             }
         } catch (Exception $e) {
@@ -48,19 +44,17 @@ class AlunoController extends Controller
             $statusCode = 200;
             $response = collect([]);
             
-            $aluno = Aluno::findOrFail($id);
+            $propina = Propina::findOrFail($id);
             $response->push([
-                'id' => $aluno->id,
-                'nome' => $aluno->nome,
-                'cartao_cidadao' => $aluno->cartao_cidadao,
-                'sexo' => $aluno->sexo,
-                'nacionalidade' => $aluno->nacionalidade,
-                'morada' => $aluno->morada,
-                'telemovel' => $aluno->telemovel,
-                'email' => $aluno->email
+                'id' => $propina->id,
+                'ano' => $propina->ano,
+                'mes' => $propina->mes,
+                'valor' => $propina->valor,
+                'cursos' => $propina->cursos,
+                'alunos' => $propina->alunos
             ]);
         } catch (Exception $e) {
-            $response->push(['error' => 'Aluno not found.']);
+            $response->push(['error' => 'Propina not found.']);
             $statusCode = 404; //Not Found
         } finally {
             return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
