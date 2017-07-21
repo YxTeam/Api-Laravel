@@ -12,6 +12,10 @@ use App\Disciplina;
 
 class EventoController1 extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth");
+    }
+    
 	public function index() {
         $eventos = Evento::all();
         
@@ -61,7 +65,7 @@ class EventoController1 extends Controller
             return redirect()->route("evento.index")->withErrors("Erro ao carregar evento. Por favor, tente novamente.");
         }
         else {
-            return view("evento.item", compact("evento")); 
+            return view("eventos.item", compact("evento")); 
         }
     }
     

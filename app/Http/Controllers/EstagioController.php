@@ -6,9 +6,9 @@ use Illuminate\Support\collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use App\Aviso;
+use App\Estagio;
 
-class AvisoController extends Controller
+class EstagioController extends Controller
 {
     public function index() {
         try {
@@ -18,17 +18,19 @@ class AvisoController extends Controller
             $response = collect([]);
 
             //get all friends from database
-            $avisos = Aviso::all();
+            $estagios = Estagio::all();
             
-            foreach($avisos as $aviso)
+            foreach($estagios as $estagio)
             {
                 //add friend to the collection
                 $response->push([
-                    'id' => $aviso->id,
-                    'assunto' => $aviso->assunto,
-                    'descricao' => $aviso->descricao,
-                    'disciplinas' => $aviso->disciplinas,
-                    'cursos' => $aviso->cursos
+                    'id' => $estagio->id,
+                    'empresa' => $estagio->empresa,
+                    'area' => $estagio->area,
+                    'n_horas' => $estagio->n_horas,
+                    'local' => $estagio->local,
+                    'contacto' => $estagio->contacto,
+                    'cursos' => $estagio->cursos
                 ]);
             }
         } catch (Exception $e) {
@@ -43,19 +45,20 @@ class AvisoController extends Controller
             $statusCode = 200;
             $response = collect([]);
             
-            $aviso = Aviso::findOrFail($id);
+            $estagio = Estagio::findOrFail($id);
             $response->push([
-                'id' => $aviso->id,
-                'assunto' => $aviso->assunto,
-                'descricao' => $aviso->descricao,
-                'disciplinas' => $aviso->disciplinas,
-                'cursos' => $aviso->cursos
+                'id' => $estagio->id,
+                'empresa' => $estagio->empresa,
+                'area' => $estagio->area,
+                'n_horas' => $estagio->n_horas,
+                'local' => $estagio->local,
+                'contacto' => $estagio->contacto,
+                'cursos' => $estagio->cursos
             ]);
         } catch (Exception $e) {
-            $response->push(['error' => 'Aviso not found.']);
+            $response->push(['error' => 'Estagio not found.']);
             $statusCode = 404; //Not Found
         } finally {
             return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
         }
-    }
-}
+    }}

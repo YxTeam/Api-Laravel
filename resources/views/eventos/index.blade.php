@@ -15,8 +15,7 @@
                     <th>Local</th>
                     <th>Assunto</th>
                     <th>Descrição</th>
-                    <th>Cursos</th>
-                    <th>Disciplinas</th>
+                    <th>Informações</th>
                     <th>Editar</th>
                     <th>Apagar</th>
                 </tr>
@@ -30,12 +29,7 @@
                     <td><?php echo $evento->local; ?></td>
                     <td><?php echo $evento->assunto; ?></td>
                     <td><?php echo $evento->descricao; ?></td>
-                    <td><?php foreach ($evento->cursos as $curso) {
-                        echo $curso->nome."<br>" ; 
-                    }?></td>
-                    <td><?php foreach ($evento->disciplinas as $disciplina) {
-                        echo $disciplina->nome."<br>" ; 
-                    }?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('evento.show', $evento->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
 
                     <td>
                         <a class="btn btn-warning" href="{{ URL::route('evento.edit', $evento->id) }}"><span class="glyphicon glyphicon-pencil icons"></span></a>

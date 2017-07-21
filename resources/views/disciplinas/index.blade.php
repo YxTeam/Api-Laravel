@@ -13,8 +13,7 @@
                     <th>Nome</th>
                     <th>Tipo</th>
                     <th>Ects</th>
-                    <th>Professor</th>
-                    <th>Alunos</th>
+                    <th>Informações</th>
                     <th>Editar</th>
                     <th>Apagar</th>
                 </tr>
@@ -26,12 +25,7 @@
                     <td><?php echo $disciplina->nome; ?></td>
                     <td><?php echo $disciplina->tipo; ?></td>
                     <td><?php echo $disciplina->ects; ?></td>
-                    <td><?php foreach ($disciplina->professores as $professor) {
-                        echo $professor->nome."<br>" ; 
-                    }?></td>
-                    <td><?php foreach ($disciplina->alunos as $aluno) {
-                        echo $aluno->nome."<br>" ; 
-                    }?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('disciplina.show', $disciplina->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
                     <td>
                         <a class="btn btn-warning" href="{{ URL::route('disciplina.edit', $disciplina->id) }}">
                             <span class="glyphicon glyphicon-pencil icons"></span>

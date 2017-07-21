@@ -12,6 +12,10 @@ use App\Disciplina;
 
 class AvisoController1 extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth");
+    }
+
 	public function index() {
         $avisos = Aviso::all();
         
@@ -61,7 +65,7 @@ class AvisoController1 extends Controller
             return redirect()->route("aviso.index")->withErrors("Erro ao carregar aviso. Por favor, tente novamente.");
         }
         else {
-            return view("aviso.item", compact("aviso")); 
+            return view("avisos.item", compact("aviso")); 
         }
     }
     

@@ -52,7 +52,11 @@ class DisciplinaController extends Controller
                 'id' => $disciplina->id,
                 'nome' => $disciplina->nome,
                 'tipo' => $disciplina->tipo,
-                'etcs' => $disciplina->etcs
+                'etcs' => $disciplina->etcs,
+                'alunos' => $disciplina->alunos,
+                'avisos' => $disciplina->avisos,
+                'eventos' => $disciplina->eventos,
+                'horarios' => $disciplina->horarios
             ]);
         } catch (Exception $e) {
             $response->push(['error' => 'Disciplina not found.']);

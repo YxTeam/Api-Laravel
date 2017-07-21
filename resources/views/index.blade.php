@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('content')
+@if (Auth::guest())
+	@include('auth.login')
+@else 
 <div class="container-fluid">
     <h1>Bem-vindo ao sistema de gestão da Escola Superior de Altos Estudos</h1>
     <h4>Tenha em atenção pois todas as acções que fizer puderão ser permanentes..</h4>
@@ -10,4 +13,5 @@
         </div>
     </div>
 </div>
+@endif
 @stop

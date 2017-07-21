@@ -11,6 +11,10 @@ use App\Disciplina;
 
 class HorarioController1 extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth");
+    }
+    
 	public function index() {
         $horarios = Horario::all();
         

@@ -11,6 +11,10 @@ use App\Curso;
 
 class DocumentoController1 extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth");
+    }
+    
     public function index() {
         $documentos = Documento::all();
         
@@ -54,7 +58,7 @@ class DocumentoController1 extends Controller
             return redirect()->route("documento.index")->withErrors("Erro ao carregar documento. Por favor, tente novamente.");
         }
         else {
-            return view("documento.item", compact("documento")); 
+            return view("documentos.item", compact("documento")); 
         }
     }
     

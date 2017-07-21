@@ -9,6 +9,7 @@ use App\Aviso;
 use App\Evento;
 use App\Propina;
 use App\Documento;
+use App\Estagio;
 
 class Curso extends Model
 {
@@ -45,5 +46,10 @@ class Curso extends Model
     public function documentos()
     {
         return $this->belongsToMany('App\Documento', 'curso_documento')->withTimestamps();
+    }
+
+    public function estagios()
+    {
+        return $this->belongsToMany('App\Estagio', 'curso_estagio')->withTimestamps();
     }
 }

@@ -53,7 +53,11 @@ class CursoController extends Controller
                 'nome' => $curso->nome,
                 'anos' => $curso->anos,
                 'coordenador' => $curso->coordenador,
-                'tipo' => $curso->tipo
+                'tipo' => $curso->tipo,
+                'alunos' => $curso->alunos,
+                'disciplinas' => $curso->disciplinas,
+                'avisos' => $curso->avisos,
+                'eventos' => $curso->eventos
             ]);
         } catch (Exception $e) {
             $response->push(['error' => 'Curso not found.']);

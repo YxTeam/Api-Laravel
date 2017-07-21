@@ -14,7 +14,7 @@
                     <th>Nº de Anos</th>
                     <th>Coordenador de Curso</th>
                     <th>Tipo</th>
-                    <th>Disciplinas</th>
+                    <th>Informações</th>
                     <th>Editar</th>
                     <th>Apagar</th>
                 </tr>
@@ -27,9 +27,7 @@
                     <td><?php echo $curso->anos; ?></td>
                     <td><?php echo $curso->coordenador; ?></td>
                     <td><?php echo $curso->tipo; ?></td>
-                    <td><?php foreach ($curso->disciplinas as $disciplina) {
-                        echo $disciplina->nome."<br>" ; 
-                    }?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('curso.show', $curso->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
 
                     <td>
                         <a class="btn btn-warning" href="{{ URL::route('curso.edit', $curso->id) }}">

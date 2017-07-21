@@ -11,6 +11,10 @@ use App\Disciplina;
 
 class ProfessorController1 extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth");
+    }
+    
 	public function index() {
         $professores = Professor::all();
         
@@ -54,7 +58,7 @@ class ProfessorController1 extends Controller
             return redirect()->route("professor.index")->withErrors("Erro ao carregar professor. Por favor, tente novamente.");
         }
         else {
-            return view("professor.item", compact("professor")); 
+            return view("professores.item", compact("professor")); 
         }
     }
     

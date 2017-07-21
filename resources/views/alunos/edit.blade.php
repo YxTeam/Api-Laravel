@@ -40,14 +40,23 @@
         </div>
         <div class="form-group">
             <label for="curso" class="control-label">Curso:</label>
-            <select id="curso" name="curso" class="form-control">
+            <select id="curso" name="curso[]" class="form-control">
+                <?php $var = 1; ?>
+                {{ $var }}
                 @foreach($cursos as $curso)
-                    @if($curso->id == $aluno->curso)
-                        <option value="<?php echo $curso->id; ?>" selected><?php echo $curso->nome; ?></option>
-                    @else
+                    @foreach($aluno->disciplinas as $alunocurso)
+                        @if($curso->id == $alunocurso->id)
+                            <option value="<?php echo $alunocurso->id; ?>" selected><?php echo $alunocurso->nome; ?></option> 
+                            {{ $var = 0 }}
+                            @break;
+                        @else
+                            {{ $var = 1 }}
+                        @endif
+                    @endforeach
+                    @if($var==1 )
                         <option value="<?php echo $curso->id; ?>"><?php echo $curso->nome; ?></option>
                     @endif
-                @endforeach
+                @endforeach 
             </select>
         </div>
         <div class="form-group">

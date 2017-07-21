@@ -53,7 +53,9 @@ class EventoController extends Controller
                 'hora' => $evento->hora,
                 'local' => $evento->local,
                 'assunto' => $evento->assunto,
-                'descricao' => $evento->descricao
+                'descricao' => $evento->descricao,
+                'disciplinas' => $evento->disciplinas,
+                'cursos' => $evento->cursos
             ]);
         } catch (Exception $e) {
             $response->push(['error' => 'Evento not found.']);

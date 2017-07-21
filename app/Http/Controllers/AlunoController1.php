@@ -12,6 +12,10 @@ use App\Disciplina;
 
 class AlunoController1 extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth");
+    }
+
     public function index() {
         $alunos = Aluno::all();
         
@@ -61,7 +65,7 @@ class AlunoController1 extends Controller
             return redirect()->route("aluno.index")->withErrors("Erro ao carregar aluno. Por favor, tente novamente.");
         }
         else {
-            return view("aluno.item", compact("aluno")); 
+            return view("alunos.item", compact("aluno")); 
         }
     }
     

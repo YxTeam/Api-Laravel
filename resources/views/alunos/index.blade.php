@@ -17,8 +17,7 @@
                     <th>Morada</th>
                     <th>Telemóvel</th>
                     <th>Email</th>
-                    <th>Cursos</th>
-                    <th>Disciplinas</th>
+                    <th>Inscrições</th>
                     <th>Editar</th>
                     <th>Apagar</th>
                 </tr>
@@ -34,12 +33,7 @@
                     <td><?php echo $aluno->morada; ?></td>
                     <td><?php echo $aluno->telemovel; ?></td>
                     <td><?php echo $aluno->email; ?></td>
-                    <td><?php foreach ($aluno->cursos as $curso) {
-                        echo $curso->nome."<br>" ; 
-                    }?></td>
-                    <td><?php foreach ($aluno->disciplinas as $disciplina) {
-                        echo $disciplina->nome."<br>" ; 
-                    }?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('aluno.show', $aluno->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
 
                     <td>
                         <a class="btn btn-warning" href="{{ URL::route('aluno.edit', $aluno->id) }}"><span class="glyphicon glyphicon-pencil icons"></span></a>

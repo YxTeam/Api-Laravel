@@ -26,8 +26,8 @@ class HorarioController extends Controller
                 $response->push([
                     'id' => $horario->id,
                     'dia' => $horario->dia,
-                    'hora' => $horario->hora,
-                    'duracao' => $horario->duracao,
+                    'hora_inicio' => $horario->hora_inicio,
+                    'hora_fim' => $horario->hora_fim,
                     'sala' => $horario->sala,
                     'disciplinas' => $horario->disciplinas
                 ]);
@@ -48,9 +48,10 @@ class HorarioController extends Controller
             $response->push([
                 'id' => $horario->id,
                 'dia' => $horario->dia,
-                'hora' => $horario->hora,
-                'duracao' => $horario->duracao,
-                'sala' => $horario->sala
+                'hora_inicio' => $horario->hora_inicio,
+                'hora_fim' => $horario->hora_fim,
+                'sala' => $horario->sala,
+                'disciplinas' => $horario->disciplinas
             ]);
         } catch (Exception $e) {
             $response->push(['error' => 'Horario not found.']);

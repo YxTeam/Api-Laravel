@@ -12,6 +12,10 @@ use App\Aluno;
 
 class PropinaController1 extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth");
+    }
+    
     public function index() {
         $propinas = Propina::all();
         
@@ -55,13 +59,13 @@ class PropinaController1 extends Controller
     public function show($id) {
         $propina = Propina::findOrFail($id); 
         $propina->curso = Curso::find($propina->curso);
-        $propina->aluno = Disciplina::find($propina->aluno);
+        $propina->aluno = Aluno::find($propina->aluno);
         
         if (is_null($propina)) {
             return redirect()->route("propina.index")->withErrors("Erro ao carregar propina. Por favor, tente novamente.");
         }
         else {
-            return view("propina.item", compact("propina")); 
+            return view("propinas.item", compact("propina")); 
         }
     }
     

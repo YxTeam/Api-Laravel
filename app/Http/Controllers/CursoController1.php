@@ -14,6 +14,10 @@ use App\Evento;
 
 class CursoController1 extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth");
+    }
+    
 	public function index() {
         $cursos = Curso::all();
         
@@ -63,7 +67,7 @@ class CursoController1 extends Controller
             return redirect()->route("curso.index")->withErrors("Erro ao carregar curso. Por favor, tente novamente.");
         }
         else {
-            return view("curso.item", compact("curso")); 
+            return view("cursos.item", compact("curso")); 
         }
     }
     

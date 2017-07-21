@@ -1,39 +1,41 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Lista de Horarios</h1>
-    <h4>Lista de horarios registados na base de dados.</h4>
-    <a href="{{URL::route('horario.create')}}" class="btn btn-default">Adicionar Horario</a>
+    <h1>Lista de Estágios</h1>
+    <h4>Lista de estágios registados na base de dados.</h4>
+    <a href="{{URL::route('estagio.create')}}" class="btn btn-default">Adicionar Estágio</a>
     <hr>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Nº Horario</th>
-                    <th>Dia</th>
-                    <th>Hora de início</th>
-                    <th>Hora de fim</th>
-                    <th>Sala</th>
-                    <th>Disciplinas</th>
+                    <th>Nº Estágio</th>
+                    <th>Empresa</th>
+                    <th>Àrea</th>
+                    <th>Nº Horas</th>
+                    <th>Local</th>
+                    <th>Contacto</th>
+                    <th>Cursos</th>
                     <th>Editar</th>
                     <th>Apagar</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($horarios as $horario)
+                @foreach($estagios as $estagio)
                 <tr>
-                    <td><?php echo $horario->id; ?></td>
-                    <td><?php echo $horario->dia; ?></td>
-                    <td><?php echo $horario->hora_inicio; ?></td>
-                    <td><?php echo $horario->hora_fim; ?></td>
-                    <td><?php echo $horario->sala; ?></td>
-                    <td><a class="btn btn-default" href="{{ URL::route('horario.show', $horario->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
+                    <td><?php echo $estagio->id; ?></td>
+                    <td><?php echo $estagio->empresa; ?></td>
+                    <td><?php echo $estagio->area; ?></td>
+                    <td><?php echo $estagio->n_horas; ?></td>
+                    <td><?php echo $estagio->local; ?></td>
+                    <td><?php echo $estagio->contacto; ?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('estagio.show', $estagio->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
 
                     <td>
-                        <a class="btn btn-warning" href="{{ URL::route('horario.edit', $horario->id) }}"><span class="glyphicon glyphicon-pencil icons"></span></a>
+                        <a class="btn btn-warning" href="{{ URL::route('estagio.edit', $estagio->id) }}"><span class="glyphicon glyphicon-pencil icons"></span></a>
                     </td>
                     <td>
-                        <form action="{{ route('horario.destroy', $horario->id) }}" method="POST">
+                        <form action="{{ route('estagio.destroy', $estagio->id) }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="_method" value="DELETE">
                             <button name="remover" type="submit" class="btn btn-danger">
@@ -50,7 +52,7 @@
                                         <h4 class="modal-title" id="myModalLabel">Atenção</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Tem a certeza que deseja apagar o horario?</p>
+                                        <p>Tem a certeza que deseja apagar o estagio?</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>

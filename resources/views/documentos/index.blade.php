@@ -25,9 +25,7 @@
                     <td><?php echo $documento->nome; ?></td>
                     <td><?php echo $documento->categoria; ?></td>
                     <td><?php echo $documento->link; ?></td>
-                    <td><?php foreach ($documento->cursos as $curso) {
-                        echo $curso->nome."<br>" ; 
-                    }?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('documento.show', $documento->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
 
                     <td>
                         <a class="btn btn-warning" href="{{ URL::route('documento.edit', $documento->id) }}"><span class="glyphicon glyphicon-pencil icons"></span></a>

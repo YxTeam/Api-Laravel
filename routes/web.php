@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::group(array('prefix' => 'api'), function() {
@@ -21,6 +21,7 @@ Route::group(array('prefix' => 'api'), function() {
 	Route::resource('cursos', 'CursoController');
 	Route::resource('disciplinas', 'DisciplinaController');
 	Route::resource('eventos', 'EventoController');
+	Route::resource('estagio', 'EstagioController');
 	Route::resource('professores', 'ProfessorController');
 	Route::resource('horarios', 'HorarioController');
 	Route::resource('propinas', 'PropinaController');
@@ -35,6 +36,7 @@ Route::group(array('prefix' => 'web'), function() {
 	Route::resource('curso', 'CursoController1');
 	Route::resource('disciplina', 'DisciplinaController1');
 	Route::resource('evento', 'EventoController1');
+	Route::resource('estagio', 'EstagioController1');
 	Route::resource('professor', 'ProfessorController1');
 	Route::resource('horario', 'HorarioController1');
 	Route::resource('propina', 'PropinaController1');
@@ -42,3 +44,6 @@ Route::group(array('prefix' => 'web'), function() {
 
 	Route::get("creditos", "PageController@credito")->name("creditos");
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

@@ -57,7 +57,9 @@ class AlunoController extends Controller
                 'nacionalidade' => $aluno->nacionalidade,
                 'morada' => $aluno->morada,
                 'telemovel' => $aluno->telemovel,
-                'email' => $aluno->email
+                'email' => $aluno->email,
+                'cursos' => $aluno->cursos,
+                'disciplinas' => $aluno->disciplinas
             ]);
         } catch (Exception $e) {
             $response->push(['error' => 'Aluno not found.']);

@@ -23,9 +23,7 @@
                     <td><?php echo $professor->id; ?></td>
                     <td><?php echo $professor->nome; ?></td>
                     <td><?php echo $professor->email; ?></td>
-                    <td><?php foreach ($professor->disciplinas as $disciplina) {
-                        echo $disciplina->nome."<br>" ; 
-                    }?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('professor.show', $professor->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
 
                     <td>
                         <a class="btn btn-warning" href="{{ URL::route('professor.edit', $professor->id) }}">

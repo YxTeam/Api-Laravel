@@ -9,12 +9,11 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Nº Aviso</th>
+                    <th>Nº Propina</th>
                     <th>Ano</th>
                     <th>Mês</th>
                     <th>Valor</th>
-                    <th>Cursos</th>
-                    <th>Alunos</th>
+                    <th>Informações</th>
                     <th>Editar</th>
                     <th>Apagar</th>
                 </tr>
@@ -26,12 +25,7 @@
                     <td><?php echo $propina->ano; ?></td>
                     <td><?php echo $propina->mes; ?></td>
                     <td><?php echo $propina->valor; ?>€</td>
-                    <td><?php foreach ($propina->cursos as $curso) {
-                        echo $curso->nome."<br>" ; 
-                    }?></td>
-                    <td><?php foreach ($propina->alunos as $aluno) {
-                        echo $aluno->nome."<br>" ; 
-                    }?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('propina.show', $propina->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
 
                     <td>
                         <a class="btn btn-warning" href="{{ URL::route('propina.edit', $propina->id) }}"><span class="glyphicon glyphicon-pencil icons"></span></a>

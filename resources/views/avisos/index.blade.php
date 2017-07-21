@@ -12,8 +12,7 @@
                     <th>Nº Aviso</th>
                     <th>Assunto</th>
                     <th>Descrição</th>
-                    <th>Cursos</th>
-                    <th>Disciplinas</th>
+                    <th>Informações</th>
                     <th>Editar</th>
                     <th>Apagar</th>
                 </tr>
@@ -24,12 +23,7 @@
                     <td><?php echo $aviso->id; ?></td>
                     <td><?php echo $aviso->assunto; ?></td>
                     <td><?php echo $aviso->descricao; ?></td>
-                    <td><?php foreach ($aviso->cursos as $curso) {
-                        echo $curso->nome."<br>" ; 
-                    }?></td>
-                    <td><?php foreach ($aviso->disciplinas as $disciplina) {
-                        echo $disciplina->nome."<br>" ; 
-                    }?></td>
+                    <td><a class="btn btn-default" href="{{ URL::route('aviso.show', $aviso->id) }}"><span class="glyphicon glyphicon-search"></span></a></td>
 
                     <td>
                         <a class="btn btn-warning" href="{{ URL::route('aviso.edit', $aviso->id) }}"><span class="glyphicon glyphicon-pencil icons"></span></a>
