@@ -21,7 +21,7 @@ Route::group(array('prefix' => 'api'), function() {
 	Route::resource('cursos', 'CursoController');
 	Route::resource('disciplinas', 'DisciplinaController');
 	Route::resource('eventos', 'EventoController');
-	Route::resource('estagio', 'EstagioController');
+	Route::resource('estagios', 'EstagioController');
 	Route::resource('professores', 'ProfessorController');
 	Route::resource('horarios', 'HorarioController');
 	Route::resource('propinas', 'PropinaController');
