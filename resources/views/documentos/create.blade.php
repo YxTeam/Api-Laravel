@@ -23,7 +23,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="link" class="control-label">link:</label>
+            <label for="link" class="control-label">Link:</label>
             <input type="text" id="link" name="link" class="form-control" required>
         </div>
         <div class="form-group">

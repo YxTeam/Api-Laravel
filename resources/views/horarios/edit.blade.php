@@ -1,14 +1,14 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Editar horario "{{ $horario->nome }}"</h1>
+    <h1>Editar horario "{{ $horario->id }}"</h1>
     <h4>Edite a informação pretendida e carregue no botão guardar.</h4>
     <a href="{{URL::route('horario.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>
     <form action="{{ route('horario.update', $horario->id)}}" method="POST">
         <input type="hidden" name="_method" value="PUT">
         <div class="form-group">
-            <label for="id" class="control-label">Nº Evento:</label>
+            <label for="id" class="control-label">Nº Horario:</label>
             <input type="number" id="id" name="id" class="form-control" value="{{ $horario->id }}" readonly>
         </div>
         <div class="form-group">

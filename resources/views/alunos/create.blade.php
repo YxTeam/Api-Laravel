@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
             <label for="curso" class="control-label">Curso:</label>
-            <select id="curso" name="curso[]" class="form-control" required>
+            <select id="curso" name="curso[]" class="form-control" multiple required>
                 @foreach($cursos as $curso)
                     <option value="<?php echo $curso->id; ?>"><?php echo $curso->nome; ?></option>
                 @endforeach

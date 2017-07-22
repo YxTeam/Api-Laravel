@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Editar evento "{{ $evento->nome }}"</h1>
+    <h1>Editar evento "{{ $evento->id }}"</h1>
     <h4>Edite a informação pretendida e carregue no botão guardar.</h4>
     <a href="{{URL::route('evento.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>
@@ -29,10 +29,10 @@
         </div>
         <div class="form-group">
             <label for="descricao" class="control-label">Descrição:</label>
-            <textarea id="descricao" name="descricao" class="form-control" value="<?php echo $evento->descricao; ?>" required></textarea>
+            <textarea id="descricao" name="descricao" class="form-control" required><?php echo $evento->descricao; ?></textarea>
         </div>
         <div class="form-group">
-            <label for="curso" class="control-label">Curso:</label>
+            <label for="curso" class="control-label">Cursos:</label>
             <select id="curso" name="curso[]" class="form-control" multiple>
                 <?php $var = 1; ?>
                 {{ $var }}
@@ -53,8 +53,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="disciplina" class="control-label">Modelo:</label>
-            <select id="disciplina" name="disciplina" class="form-control" multiple>
+            <label for="disciplina" class="control-label">Disciplinas:</label>
+            <select id="disciplina" name="disciplina[]" class="form-control" multiple>
                 <?php $var = 1; ?>
                 {{ $var }}
                 @foreach($disciplinas as $disciplina)

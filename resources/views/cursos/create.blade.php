@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Adicionar uma nova curso</h1>
-    <h4>Insira toda a informação sobre a curso.</h4>
+    <h1>Adicionar um novo curso</h1>
+    <h4>Insira toda a informação sobre o curso.</h4>
     <a href="{{URL::route('curso.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>
 

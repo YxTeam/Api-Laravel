@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Editar aviso "{{ $aviso->nome }}"</h1>
+    <h1>Editar aviso "{{ $aviso->id }}"</h1>
     <h4>Edite a informação pretendida e carregue no botão guardar.</h4>
     <a href="{{URL::route('aviso.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>

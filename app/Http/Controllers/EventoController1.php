@@ -70,7 +70,7 @@ class EventoController1 extends Controller
     }
     
     public function edit($id) {
-        $evento = Disciplina::findOrFail($id);
+        $evento = Evento::findOrFail($id);
         
         if (is_null($evento)) {
             return redirect()->route("evento.index")->withErrors("Erro ao carregar evento. Por favor, tente novamente.");
@@ -79,7 +79,7 @@ class EventoController1 extends Controller
         	$cursos = Curso::all(); 
             $disciplinas = Disciplina::all();
             
-            return view("eventos.edit", compact("cursos", "disciplinas"));
+            return view("eventos.edit", compact("evento", "cursos", "disciplinas"));
         }
     }
     

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Editar estagio "{{ $estagio->nome }}"</h1>
+    <h1>Editar estagio "{{ $estagio->empresa }}"</h1>
     <h4>Edite a informação pretendida e carregue no botão guardar.</h4>
     <a href="{{URL::route('estagio.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
             <label for="contacto" class="control-label">Contacto:</label>
-            <textarea id="contacto" name="contacto" class="form-control" value="<?php echo $estagio->contacto; ?>" required></textarea>
+            <input type="number" id="contacto" name="contacto" class="form-control" value="<?php echo $estagio->contacto; ?>" required>
         </div>
         <div class="form-group">
             <label for="curso" class="control-label">Curso:</label>

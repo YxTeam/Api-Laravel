@@ -8,10 +8,6 @@
 
     <form action="{{URL::route('aviso.store')}}" method="POST">
         <div class="form-group">
-            <label for="dia" class="control-label">Dia:</label>
-            <input type="date" id="dia" name="dia" class="form-control" required>
-        </div>
-        <div class="form-group">
             <label for="assunto" class="control-label">Assunto:</label>
             <input type="text" id="assunto" name="assunto" class="form-control" required>
         </div>

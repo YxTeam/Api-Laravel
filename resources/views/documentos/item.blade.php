@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Aviso "{{ $documento->nome }}"</h1>
-    <h4>Lista de inscrições de {{ $documento->nome }} registados na base de dados.</h4>
+    <h1>Documento "{{ $documento->nome }}"</h1>
+    <h4>Lista de cursos com o documento {{ $documento->nome }} registados na base de dados.</h4>
     <a href="{{URL::route('documento.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>
     <div class="table-responsive">

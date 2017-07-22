@@ -9,7 +9,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Nº Aviso</th>
+                    <th>Nº Evento</th>
                     <th>Dia</th>
                     <th>Hora</th>
                     <th>Local</th>

@@ -71,7 +71,7 @@ class EstagioController1 extends Controller
         else {
         	$cursos = Curso::all(); 
             
-            return view("estagios.edit", compact("cursos"));
+            return view("estagios.edit", compact("estagio", "cursos"));
         }
     }
     
@@ -97,7 +97,7 @@ class EstagioController1 extends Controller
         }
         else {
             $estagio -> delete();
-            return redirect()->route("estagio.index")->with("flash_message", "Documento apagado com sucesso!");
+            return redirect()->route("estagio.index")->with("flash_message", "Estagio apagado com sucesso!");
         }
     }
 }

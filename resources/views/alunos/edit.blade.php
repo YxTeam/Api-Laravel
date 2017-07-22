@@ -16,6 +16,10 @@
             <input type="text" id="nome" name="nome" class="form-control" value="<?php echo $aluno->nome; ?>">
         </div>
         <div class="form-group">
+            <label for="cartao_cidadao" class="control-label">Cartão de Cidadão:</label>
+            <input type="text" id="cartao_cidadao" name="cartao_cidadao" class="form-control" value="<?php echo $aluno->cartao_cidadao; ?>">
+        </div>
+        <div class="form-group">
             <label for="sexo" class="control-label">Sexo:</label>
             <select id="sexo" name="sexo" class="form-control" required>
                 <option value="Masculino">Masculino</option>
@@ -39,8 +43,8 @@
             <input type="email" id="email" name="email" class="form-control" value="<?php echo $aluno->email; ?>" required>
         </div>
         <div class="form-group">
-            <label for="curso" class="control-label">Curso:</label>
-            <select id="curso" name="curso[]" class="form-control">
+            <label for="curso" class="control-label">Cursos:</label>
+            <select id="curso" name="curso[]" class="form-control" multiple>
                 <?php $var = 1; ?>
                 {{ $var }}
                 @foreach($cursos as $curso)
@@ -60,7 +64,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="disciplina" class="control-label">Modelo:</label>
+            <label for="disciplina" class="control-label">Disciplinas:</label>
             <select id="disciplina" name="disciplina[]" class="form-control" multiple>
                 <?php $var = 1; ?>
                 {{ $var }}

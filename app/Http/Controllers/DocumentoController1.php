@@ -71,7 +71,7 @@ class DocumentoController1 extends Controller
         else {
         	$cursos = Curso::all(); 
             
-            return view("eventos.edit", compact("cursos"));
+            return view("documentos.edit", compact("documento", "cursos"));
         }
     }
     

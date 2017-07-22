@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Adicionar um novo estagio</h1>
-    <h4>Insira toda a informação sobre o estagio.</h4>
+    <h1>Adicionar um novo estágio</h1>
+    <h4>Insira toda a informação sobre o estágio.</h4>
     <a href="{{URL::route('estagio.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>
 

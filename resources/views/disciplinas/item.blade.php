@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <h1>Disciplina "{{ $disciplina->nome }}"</h1>
-    <h4>Lista de informações de {{ $disciplina->nome }} registados na base de dados.</h4>
+    <h4>Lista de informações da disciplina {{ $disciplina->nome }} registados na base de dados.</h4>
     <a href="{{URL::route('disciplina.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>
     <div class="table-responsive">

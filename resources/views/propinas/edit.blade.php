@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
-    <h1>Editar propina "{{ $propina->mes }}"</h1>
+    <h1>Editar propina de "{{ $propina->mes }}"</h1>
     <h4>Edite a informação pretendida e carregue no botão guardar.</h4>
     <a href="{{URL::route('propina.index')}}" class="btn btn-default">Voltar atrás</a>
     <hr>
@@ -17,14 +17,28 @@
         </div>
         <div class="form-group">
             <label for="mes" class="control-label">Mês:</label>
-            <input type="text" id="mes" name="mes" class="form-control" value="<?php echo $propina->mes; ?>" required>
+            <select id="mes" name="mes" class="form-control" required>
+                <option value="<?php echo $propina->mes; ?>"><?php echo $propina->mes; ?></option>
+                <option value="Janeiro">Janeiro</option>
+                <option value="Fevereiro">Fevereiro</option>
+                <option value="Março">Março</option>
+                <option value="Abril">Abril</option>
+                <option value="Maio">Maio</option>
+                <option value="Junho">Junho</option>
+                <option value="Julho">Julho</option>
+                <option value="Agosto">Agosto</option>
+                <option value="Setembro">Setembro</option>
+                <option value="Outubro">Outubro</option>
+                <option value="Novembro">Novembro</option>
+                <option value="Dezembro">Dezembro</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="valor" class="control-label">Valor:</label>
-            <input type="number" id="valor" name="local" class="form-control" value="<?php echo $propina->valor; ?>" required>
+            <input type="number" id="valor" name="valor" class="form-control" value="<?php echo $propina->valor; ?>" required>
         </div>
         <div class="form-group">
-            <label for="curso" class="control-label">Curso:</label>
+            <label for="curso" class="control-label">Cursos:</label>
             <select id="curso" name="curso[]" class="form-control" multiple>
                 <?php $var = 1; ?>
                 {{ $var }}
@@ -45,7 +59,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="aluno" class="control-label">Curso:</label>
+            <label for="aluno" class="control-label">Alunos:</label>
             <select id="aluno" name="aluno[]" class="form-control" multiple>
                 <?php $var = 1; ?>
                 {{ $var }}
