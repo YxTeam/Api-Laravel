@@ -25,7 +25,7 @@ Route::group(array('prefix' => 'api'), function() {
 	Route::resource('professores', 'ProfessorController');
 	Route::resource('horarios', 'HorarioController');
 	Route::resource('propinas', 'PropinaController');
-	Route::resource('documento', 'DocumentoController');
+	Route::resource('documentos', 'DocumentoController');
 });
 
 Route::group(array('prefix' => 'web'), function() {
