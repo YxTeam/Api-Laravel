@@ -83,6 +83,7 @@ class ProfessorController1 extends Controller
         }
         else {
             $dados_professor = $dados->all();
+            $professor->disciplinas()->sync($dados->disciplina);
             $professor->fill($dados_professor)->save();
             
             return redirect()->route("professor.index")->with("flash_message", "Professor atualizado com sucesso!");

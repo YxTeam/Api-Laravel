@@ -91,6 +91,8 @@ class EventoController1 extends Controller
         }
         else {
             $dados_evento = $dados->all();
+            $evento->cursos()->sync($dados->curso);
+            $evento->disciplinas()->sync($dados->disciplina);
             $evento->fill($dados_evento)->save();
             
             return redirect()->route("evento.index")->with("flash_message", "Evento atualizado com sucesso!");

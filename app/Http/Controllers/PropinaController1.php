@@ -91,6 +91,8 @@ class PropinaController1 extends Controller
         }
         else {
             $dados_propina = $dados->all();
+            $propina->cursos()->sync($dados->curso);
+            $propina->alunos()->sync($dados->aluno);
             $propina->fill($dados_propina)->save();
             
             return redirect()->route("propina.index")->with("flash_message", "Propina atualizado com sucesso!");

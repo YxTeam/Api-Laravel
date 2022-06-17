@@ -91,6 +91,8 @@ class AvisoController1 extends Controller
         }
         else {
             $dados_aviso = $dados->all();
+            $aviso->cursos()->sync($dados->curso);
+            $aviso->disciplinas()->sync($dados->disciplina);
             $aviso->fill($dados_aviso)->save();
             
             return redirect()->route("aviso.index")->with("flash_message", "Aviso atualizado com sucesso!");

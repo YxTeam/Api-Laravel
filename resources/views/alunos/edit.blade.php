@@ -48,7 +48,7 @@
                 <?php $var = 1; ?>
                 {{ $var }}
                 @foreach($cursos as $curso)
-                    @foreach($aluno->disciplinas as $alunocurso)
+                    @foreach($aluno->cursos as $alunocurso)
                         @if($curso->id == $alunocurso->id)
                             <option value="<?php echo $alunocurso->id; ?>" selected><?php echo $alunocurso->nome; ?></option> 
                             {{ $var = 0 }}

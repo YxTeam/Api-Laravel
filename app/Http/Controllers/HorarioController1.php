@@ -83,6 +83,7 @@ class HorarioController1 extends Controller
         }
         else {
             $dados_horario = $dados->all();
+            $evento->disciplinas()->sync($dados->disciplina);
             $horario->fill($dados_horario)->save();
             
             return redirect()->route("horario.index")->with("flash_message", "Horario atualizado com sucesso!");

@@ -91,6 +91,8 @@ class AlunoController1 extends Controller
         }
         else {
             $dados_aluno = $dados->all();
+            $aluno->cursos()->sync($dados->curso);
+            $aluno->disciplinas()->sync($dados->disciplina);
             $aluno->fill($dados_aluno)->save();
             
             return redirect()->route("aluno.index")->with("flash_message", "Aluno atualizado com sucesso!");

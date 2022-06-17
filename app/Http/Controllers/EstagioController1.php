@@ -83,6 +83,7 @@ class EstagioController1 extends Controller
         }
         else {
             $dados_estagio = $dados->all();
+            $estagio->cursos()->sync($dados->curso);
             $estagio->fill($dados_estagio)->save();
             
             return redirect()->route("estagio.index")->with("flash_message", "Estagio atualizado com sucesso!");

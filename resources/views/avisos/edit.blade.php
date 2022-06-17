@@ -41,7 +41,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="disciplina" class="control-label">Modelo:</label>
+            <label for="disciplina" class="control-label">Disciplinas:</label>
             <select id="disciplina" name="disciplina[]" class="form-control" multiple>
                 <?php $var = 1; ?>
                 {{ $var }}

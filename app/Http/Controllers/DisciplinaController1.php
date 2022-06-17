@@ -38,9 +38,7 @@ class DisciplinaController1 extends Controller
     }
     
     public function create() {
-        //$disciplinas = Disciplina::all();
-        
-        return view("disciplinas.create", compact("disciplinas"));
+        return view("disciplinas.create");
     }
     
     public function store(Request $dados) {
@@ -76,9 +74,7 @@ class DisciplinaController1 extends Controller
         if (is_null($disciplina)) {
             return redirect()->route("disciplina.index")->withErrors("Erro ao carregar disciplina. Por favor, tente novamente.");
         }
-        else { 
-            //$disciplinas = Disciplina::all();
-            
+        else {
             return view("disciplinas.edit", compact("disciplina"));
         }
     }

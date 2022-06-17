@@ -83,6 +83,7 @@ class DocumentoController1 extends Controller
         }
         else {
             $dados_documento = $dados->all();
+            $documento->cursos()->sync($dados->curso);
             $documento->fill($dados_documento)->save();
             
             return redirect()->route("documento.index")->with("flash_message", "Documento atualizado com sucesso!");

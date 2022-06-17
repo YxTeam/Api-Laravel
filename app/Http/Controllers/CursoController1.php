@@ -92,6 +92,7 @@ class CursoController1 extends Controller
         }
         else {
             $dados_curso = $dados->all();
+            $curso->disciplinas()->sync($dados->disciplina);
             $curso->fill($dados_curso)->save();
             
             return redirect()->route("curso.index")->with("flash_message", "Curso atualizado com sucesso!");
